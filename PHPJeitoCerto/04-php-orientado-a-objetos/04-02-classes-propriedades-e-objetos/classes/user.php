@@ -28,7 +28,7 @@ class User
 
     public function setEmail($email){
         $this->email = $email;
-        if(filter_var($this->email, FILTER_SANITIZE_EMAIL)){
+        if(filter_var($email, FILTER_VALIDATE_EMAIL)){
             return true;
         }else{
             return false;

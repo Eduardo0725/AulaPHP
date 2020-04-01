@@ -33,7 +33,7 @@ fullStackPHPClassSession("métodos", __LINE__);
 
 $user->setFirstName("Robson");
 $user->setLastName("Leite");
-if(!$user->setEmail("cursos")){
+if(!$user->setEmail("cursos@exemple.com")){
     echo "<p class='trigger error'>O e-mail {$user->getEmail()} não é valido!</p>";
 }
 
