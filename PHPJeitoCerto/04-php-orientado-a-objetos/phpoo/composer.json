@@ -1,0 +1,25 @@
+{
+    "name": "eduardo/phpdojeitocerto",
+    "description": "Projeto de exemplo sobre POO da Webserie PHP Do Jeito Certo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Eduardo0725",
+            "email": "eduardom0142@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "autoload": {
+        "psr-4": {
+            "Source\\": "source/"
+        },
+        "files":[
+            "source/Config.php"
+        ]
+    },
+    "require": {
+        "coffeecode/datalayer": "1.1.*",
+        "fzaninotto/faker": "1.8.*",
+        "ext-pdo": "*"
+    }
+}
