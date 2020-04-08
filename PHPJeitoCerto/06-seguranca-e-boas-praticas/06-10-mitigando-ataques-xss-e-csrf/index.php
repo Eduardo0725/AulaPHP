@@ -4,12 +4,22 @@ fullStackPHPClassName("06.10 - Mitigando ataques XSS e CSRF");
 
 require __DIR__ . "/../source/autoload.php";
 
+
+require __DIR__ .  "./../source/Helpers/Helpers.php";
+define("CONF_SES_PATH", __DIR__."./../storage/sessions");
+$session = new Source\Core\Session;
 /*
  * [ XSS ] Cross-site Scripting
  * https://pt.wikipedia.org/wiki/Cross-site_scripting
  */
 fullStackPHPClassSession("xxs", __LINE__);
 
+// $post = $_POST;
+$post = filter_input_array(INPUT_POST, FILTER_SANITIZE_SPECIAL_CHARS);
+if($post){
+    $data = (object)$post;
+    echo "<pre>", var_dump($post),"</pre>";
+}
 
 /*
  * [ CSRF ] Cross-Site Request Forgery
@@ -17,6 +27,11 @@ fullStackPHPClassSession("xxs", __LINE__);
  */
 fullStackPHPClassSession("csrf", __LINE__);
 
+if($_REQUEST && !csrf_verify($_REQUEST, $session)) {
+    echo "<p>CSRF bloqued</p>";
+}else{
+    echo "<pre>", var_dump($_REQUEST),"</pre>";
+}
 
 /*
  * [ form ]
